@@ -1,22 +1,24 @@
 "use client";
 import AuthCheckBox from "@/components/AuthCheckbox";
+import ButtonType1 from "@/components/ButtonType1";
 import { EyeFilledIcon } from "@/components/EyeFilledIcon";
 import { EyeSlashFilledIcon } from "@/components/EyeSlashFilledIcon";
-import { Button } from "@nextui-org/react";
+import FormFunction from "@/components/FormFunction";
 import { Input } from "@nextui-org/react";
+import Link from "next/link";
 import React from "react";
 const Login = () => {
   const [isVisible, setIsVisible] = React.useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
   return (
-    <form action="" className="auth-form login-form ">
+    <form action="" className="login-form ">
       <h1 className="login-title auth-header-title">Login</h1>
       <Input
-        className="max-w-xs"
+        className="max-w-xs mb-4 mt-8"
         type="text"
         variant="bordered"
-        label="Email"
+        label="PhoneNumber"
         classNames={{
           label: "text-text-w focus:text-white",
           input: "text-text-w",
@@ -24,6 +26,7 @@ const Login = () => {
         }}
       />
       <Input
+
         classNames={{
           label: "text-text-w focus:text-white",
           input: "text-text-w",
@@ -45,10 +48,12 @@ const Login = () => {
           </button>
         }
         type={isVisible ? "text" : "password"}
-        className="max-w-xs"
+        className="max-w-xs mb-4"
       />
-      <button className="log-btn btn-1st-type">Login</button>
-      <AuthCheckBox content="Forgot your password?"></AuthCheckBox>
+      <ButtonType1 content="Log in"></ButtonType1>
+      <AuthCheckBox content="Rememer me!"></AuthCheckBox>
+      <FormFunction content="Don't have account yet?" function="Sign up" nav_link="/sign-up"></FormFunction>
+      <FormFunction content="Forgot your password?" function="Click here" nav_link="/forgot-password"></FormFunction>
     </form>
   );
 };

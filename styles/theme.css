@@ -3,19 +3,22 @@
 @tailwind utilities;
 
 @layer utilities {
-  .auth-form {
-    @apply relative self-center w-400 h-400 flex flex-col justify-center items-center gap-6 rounded-3xl py-56 before-overlay z-0;
+  .login-form {
+    @apply relative self-center w-400 h-400 flex flex-col justify-center items-center gap-1 rounded-3xl py-56 before-overlay z-0;
+  }
+  .sign-up-form {
+    @apply relative self-center w-400 h-580 flex flex-col justify-center items-center rounded-3xl py-56 before-overlay z-0 gap-2;
   }
   .btn-1st-type {
     @apply bg-primary-500 text-text-w font-bold px-14 py-2 rounded  text-xl transition ease-linear hover:bg-primary-400;
   }
   .auth-header-title {
-    @apply text-4xl font-bold text-primary-400;
+    @apply text-4xl font-bold text-primary-500;
   }
 }
 @layer components {
   .before-overlay::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background: rgba(255, 255, 255, 0.29);
