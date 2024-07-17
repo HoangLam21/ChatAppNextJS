@@ -15,6 +15,12 @@
   .auth-header-title {
     @apply text-4xl font-bold text-primary-500;
   }
+  .long-p-wrap {
+    @apply before-overlay z-0 m-10;
+  }
+  .long-p{
+    @apply text-clip border-2
+  }
 }
 @layer components {
   .before-overlay::before {

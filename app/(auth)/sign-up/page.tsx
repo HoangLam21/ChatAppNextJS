@@ -4,6 +4,7 @@ import ButtonType1 from "@/components/ButtonType1";
 import { EyeFilledIcon } from "@/components/EyeFilledIcon";
 import { EyeSlashFilledIcon } from "@/components/EyeSlashFilledIcon";
 import FormFunction from "@/components/FormFunction";
+import PolicyAgreement from "@/components/PolicyAgreement";
 import { Button, Input, Link, LinkIcon } from "@nextui-org/react";
 import React from "react";
 
@@ -97,6 +98,8 @@ const SignUp = () => {
       />
 
       <ButtonType1 content="Sign up"></ButtonType1>
+        <PolicyAgreement content="I agree with TuCu's " nav_link="/policy" function="Policy"></PolicyAgreement>
+
       <FormFunction
         content="Already have an account?"
         function="Log in"
