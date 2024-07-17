@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .auth-form {
+    @apply relative self-center w-400 h-400 flex flex-col justify-center items-center gap-6 rounded-3xl py-56 before-overlay z-0;
+  }
+  .btn-1st-type {
+    @apply bg-primary-500 text-text-w font-bold px-14 py-2 rounded  text-xl transition ease-linear hover:bg-primary-400;
+  }
+  .auth-header-title {
+    @apply text-4xl font-bold text-primary-400;
+  }
+}
+@layer components {
+  .before-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.29);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11.6px);
+    -webkit-backdrop-filter: blur(11.6px);
+    border: 3.2px solid rgba(255, 255, 255, 0.44);
+    z-index: -1; /* Ensure the before element is behind */
+  }
+}

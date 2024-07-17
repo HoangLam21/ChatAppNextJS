@@ -1,10 +1,11 @@
 import type { Config } from "tailwindcss";
-
+import {nextui} from "@nextui-org/react";
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
@@ -23,10 +24,24 @@ const config: Config = {
           w: "#ffffff",
           dark: "#301755",
           light: "#683da3",
-        },
+          "white-blur": "#ffffff26",
+        }
+      },
+      width: {
+        "400": "400px",
+        "300": "300px",
+      },
+      height: {
+        "400": "400px",
+        "900": "900px",
       },
     },
+    backgroundImage: {
+      "auth-bg": "url('/AuthBackground.jpg')",
+    }
   },
-  plugins: [],
+  plugins: [
+    nextui()
+  ],
 };
 export default config;
