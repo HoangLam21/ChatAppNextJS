@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { useMemo } from 'react';
 import {
   Navbar,
   NavbarBrand,
@@ -116,16 +117,16 @@ const SideBar = () => {
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="profile" className="h-14 gap-2">
+            <DropdownItem key="profile" className="h-14 gap-2" color="secondary">
               <p className="font-semibold">Signed in as</p>
               <p className="font-semibold">zoey@example.com</p>
             </DropdownItem>
-            <DropdownItem key="settings">My Settings</DropdownItem>
-            <DropdownItem key="team_settings">Team Settings</DropdownItem>
-            <DropdownItem key="analytics">Analytics</DropdownItem>
-            <DropdownItem key="system">System</DropdownItem>
-            <DropdownItem key="configurations">Configurations</DropdownItem>
-            <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
+            <DropdownItem key="settings" color="secondary">My Settings</DropdownItem>
+            <DropdownItem key="team_settings" color="secondary">Team Settings</DropdownItem>
+            <DropdownItem key="analytics" color="secondary">Analytics</DropdownItem>
+            <DropdownItem key="system" color="secondary">System</DropdownItem>
+            <DropdownItem key="configurations" color="secondary">Configurations</DropdownItem>
+            <DropdownItem key="help_and_feedback" color="secondary">Help & Feedback</DropdownItem>
             <DropdownItem key="logout" color="danger">
               Log Out
             </DropdownItem>
