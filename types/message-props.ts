@@ -10,3 +10,17 @@ export interface ReceiverInfo {
   name: string;
   isOnline: boolean;
 }
+export interface MessageContent {
+  id: string;
+  messageContent: string;
+  time: string;
+  isReceiver: boolean;
+  avatar: string;
+}
+export interface MessageListOfAChat {
+  messages: MessageContent[];
+}
+export interface ChatBoxProps{
+  receiverInfo:ReceiverInfo,
+  messages:MessageListOfAChat
+}
