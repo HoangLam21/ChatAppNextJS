@@ -26,7 +26,6 @@ const Login = () => {
         }}
       />
       <Input
-
         classNames={{
           label: "text-text-w focus:text-white",
           input: "text-text-w",
@@ -52,8 +51,16 @@ const Login = () => {
       />
       <ButtonType1 content="Log in"></ButtonType1>
       <AuthCheckBox content="Rememer me!"></AuthCheckBox>
-      <FormFunction content="Don't have account yet?" function="Sign up" nav_link="/sign-up"></FormFunction>
-      <FormFunction content="Forgot your password?" function="Click here" nav_link="/forgot-password"></FormFunction>
+      <FormFunction
+        content="Don't have account yet?"
+        function="Sign up"
+        nav_link="/sign-up"
+      ></FormFunction>
+      <FormFunction
+        content="Forgot your password?"
+        function="Click here"
+        nav_link="/forgot-password"
+      ></FormFunction>
     </form>
   );
 };

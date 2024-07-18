@@ -10,10 +10,15 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.4.2",
+    "body-parser": "^1.20.2",
+    "flowbite": "^2.4.1",
     "framer-motion": "^11.3.5",
+    "fs": "^0.0.1-security",
     "next": "14.2.5",
+    "path": "^0.12.7",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tailwind-scrollbar-hide": "^1.1.7"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -22,6 +27,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
+    "tailwind-scrollbar": "^3.1.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

@@ -16,7 +16,7 @@
     @apply text-4xl font-bold text-primary-500;
   }
   .long-p-wrap {
-    @apply before-overlay z-0 m-10;
+    @apply z-0 m-10 bg-primary-200;
   }
   .long-p{
     @apply text-clip border-2

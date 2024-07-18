@@ -15,6 +15,7 @@ const config: Config = {
           "400": "#683da3",
           "300": "#9b59cd",
           "200": "#e0b0f6",
+          "100": "#f8f2ff",
         },
         text: {
           b: "#000000",
@@ -40,6 +41,6 @@ const config: Config = {
       "auth-bg": "url('/AuthBackground.jpg')",
     },
   },
-  plugins: [nextui()],
+  plugins: [nextui(), require("tailwind-scrollbar")],
 };
 export default config;
