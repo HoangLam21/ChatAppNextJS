@@ -13,8 +13,11 @@ function RootLayout({
 }>) {
   return (
     <html lang="en" className="scrollbar-track-transparent scrollbar-thumb">
-      <body className="w-screen overflow-hidden">
-        <SideBar></SideBar>
+      <body className="w-screen overflow-hidden h-screen">
+        <div className="navbar-wrapper h-16">
+          <SideBar></SideBar>
+        </div>
+
         <Providers>{children}</Providers>
       </body>
     </html>

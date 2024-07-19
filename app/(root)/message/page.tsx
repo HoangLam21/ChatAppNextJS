@@ -1,6 +1,7 @@
 import ChatBox from "@/components/ChatBox";
 import MessageBox from "@/components/MessageBox";
 import MessageBoxHeader from "@/components/MessageBoxHeader";
+import MessageTyping from "@/components/MessageTyping";
 import SearchBox from "@/components/SearchBox";
 import {
   ChatBoxProps,
@@ -69,7 +70,7 @@ export default function Home() {
     ],
   };
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-0 gap-4">
+    <main className="flex h-screen flex-col items-center justify-between p-0 gap-4">
       <div className=" w-screen h-screen border-4 message-page-wrapper flex flex-row">
         <div className="message-list flex-1 h-screen w-screen flex flex-col ">
           <SearchBox></SearchBox>
@@ -86,9 +87,11 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="chat-box w-3/4 flex-2 hidden sm:block">
+        <div className="chat-box w-3/4 h-except-navbar flex-2 hidden sm:flex sm:flex-col">
           <ChatBox {...test}></ChatBox>
+          <MessageTyping></MessageTyping>
       </div>
+      
       </div>
       <div className="">Message</div>
     </main>

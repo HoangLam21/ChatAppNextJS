@@ -8,7 +8,7 @@ import Message from "./Message";
 
 const ChatBox = (props: ChatBoxProps) => {
   return (
-    <div className="chatbox-container">
+    <div className="chatbox-container flex-grow">
       <MessageBoxHeader
         avatar={props.receiverInfo.avatar}
         name={props.receiverInfo.name}
