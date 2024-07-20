@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { useMemo } from 'react';
+import React, { useEffect } from "react";
+import { useMemo } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -25,8 +25,8 @@ import {
   ReportIcon,
   SettingIcon,
 } from "./NavBarIcon";
+import { usePathname } from "next/navigation";
 const SideBar = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const menuItems = [
     { label: "Message", link: "/message" },
     { label: "Friends", link: "/friends" },
@@ -34,8 +34,11 @@ const SideBar = () => {
     { label: "Report", link: "/report" },
     { label: "Setting", link: "/setting" },
   ];
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [selectedMenuItem, setSelectedMenuItem] = React.useState("");
   const iconSize = "30";
   const iconColor = "#301755";
+  const pathName = usePathname();
   return (
     <Navbar
       className="border-b-2 border-primary-200"
@@ -55,52 +58,23 @@ const SideBar = () => {
       </NavbarBrand>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem isActive className="focus:bg-primary-300">
-          <Link
-            color="foreground"
-            href="/message"
-            className="focus:bg-primary-300 p-3 rounded-full"
-          >
-            <MessageIcon size={iconSize} color={iconColor}></MessageIcon>
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link
-            href="/friends"
-            aria-current="page"
-            color="secondary"
-            className="focus:bg-primary-300 p-3 rounded-full"
-          >
-            <FriendsIcon size={iconSize} color={iconColor}></FriendsIcon>
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link
-            color="foreground"
-            href="/privacy"
-            className="focus:bg-primary-300 p-3 rounded-full"
-          >
-            <PrivacyIcon size={iconSize} color={iconColor}></PrivacyIcon>
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link
-            color="foreground"
-            href="/report"
-            className="focus:bg-primary-300 p-3 rounded-full"
-          >
-            <ReportIcon size={iconSize} color={iconColor}></ReportIcon>
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link
-            color="foreground"
-            href="/setting"
-            className="focus:bg-primary-300 p-3 rounded-full"
-          >
-            <SettingIcon size={iconSize} color={iconColor}></SettingIcon>
-          </Link>
-        </NavbarItem>
+        {menuItems.map((m, index) => {
+          const isActive = pathName?.startsWith(m.link);
+          return (
+            <NavbarItem key={index}>
+              <Link
+                href={m.link}
+                className={
+                  isActive
+                    ? "bg-primary-500 text-text-w rounded-3xl transition p-3 text-medium font-semibold hover:text-primary-400"
+                    : "transition text-medium font-semibold hover:text-primary-400"
+                }
+              >
+                {m.label}
+              </Link>
+            </NavbarItem>
+          );
+        })}
       </NavbarContent>
 
       <NavbarContent as="div" justify="end">
@@ -117,16 +91,32 @@ const SideBar = () => {
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="profile" className="h-14 gap-2" color="secondary">
+            <DropdownItem
+              key="profile"
+              className="h-14 gap-2"
+              color="secondary"
+            >
               <p className="font-semibold">Signed in as</p>
               <p className="font-semibold">zoey@example.com</p>
             </DropdownItem>
-            <DropdownItem key="settings" color="secondary">My Settings</DropdownItem>
-            <DropdownItem key="team_settings" color="secondary">Team Settings</DropdownItem>
-            <DropdownItem key="analytics" color="secondary">Analytics</DropdownItem>
-            <DropdownItem key="system" color="secondary">System</DropdownItem>
-            <DropdownItem key="configurations" color="secondary">Configurations</DropdownItem>
-            <DropdownItem key="help_and_feedback" color="secondary">Help & Feedback</DropdownItem>
+            <DropdownItem key="settings" color="secondary">
+              My Settings
+            </DropdownItem>
+            <DropdownItem key="team_settings" color="secondary">
+              Team Settings
+            </DropdownItem>
+            <DropdownItem key="analytics" color="secondary">
+              Analytics
+            </DropdownItem>
+            <DropdownItem key="system" color="secondary">
+              System
+            </DropdownItem>
+            <DropdownItem key="configurations" color="secondary">
+              Configurations
+            </DropdownItem>
+            <DropdownItem key="help_and_feedback" color="secondary">
+              Help & Feedback
+            </DropdownItem>
             <DropdownItem key="logout" color="danger">
               Log Out
             </DropdownItem>

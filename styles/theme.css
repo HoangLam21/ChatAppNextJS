@@ -21,6 +21,9 @@
   .long-p{
     @apply text-clip border-2
   }
+  .is-selected{
+    @apply bg-primary-400
+  }
 }
 @layer components {
   .before-overlay::before {
