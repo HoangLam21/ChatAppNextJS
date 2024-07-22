@@ -1,26 +1,24 @@
 export interface MessageBoxProps {
-  avatar: string;
-  name: string;
-  recentMessage: string;
-  timeRecentMessage: string;
-  isOnline: boolean;
+  receiverInfo: ReceiverInfo;
+  messages: MessageContent[];
 }
 export interface ReceiverInfo {
+  id: string;
   avatar: string;
   name: string;
   isOnline: boolean;
 }
 export interface MessageContent {
   id: string;
+  sender_id: string;
+  receiver_id: string;
   messageContent: string;
   time: string;
-  isReceiver: boolean;
-  avatar: string;
 }
-export interface MessageListOfAChat {
+// export interface MessageListOfAChat {
+//   messages: MessageContent[];
+// }
+export interface ChatBoxProps {
+  receiverInfo: ReceiverInfo;
   messages: MessageContent[];
-}
-export interface ChatBoxProps{
-  receiverInfo:ReceiverInfo,
-  messages:MessageListOfAChat
 }

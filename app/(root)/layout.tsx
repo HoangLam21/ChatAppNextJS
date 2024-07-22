@@ -19,7 +19,7 @@ function SeRootLayout({
 }>) {
   return (
     <html lang="en" className="scrollbar-track-transparent scrollbar-thumb">
-      <body className=" w-screen overflow-hidden h-screen flex flex-col-reverse sm:flex-col ">
+      <body className=" w-screen overflow-hidden h-screen flex flex-col-reverse sm:flex-col overflow-x-hidden ">
         <div className="w-full h-fit justify-self-center navbar-wrapper">
           <SideBar></SideBar>
         </div>

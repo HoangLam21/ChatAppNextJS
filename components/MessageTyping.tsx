@@ -3,7 +3,7 @@ import ButtonType1 from "./ButtonType1";
 
 const MessageTyping = () => {
   return (
-    <div className="message-typing-wrapper place-self-end ml-auto flex gap-2 w-full p-2">
+    <div className="message-typing-wrapper place-self-end ml-auto flex gap-2 w-full p-2 sticky">
       <input
         type="text"
         placeholder="Type message..."

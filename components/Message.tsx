@@ -1,16 +1,10 @@
 import { MessageContent } from "@/types/message-props";
 import { Avatar, Badge } from "@nextui-org/react";
-
+const userId = "2";
 const Message = (props: MessageContent) => {
-  return props.isReceiver ? (
+  return props.sender_id !== userId ? (
     <div className="message-line flex w-full h-auto">
       <div className="message-wrapper p-2 place-self-start  max-h-1/2 flex gap-2">
-        <Avatar
-          className="self-end"
-          isBordered
-          radius="full"
-          src={props.avatar}
-        />
         <div className="message-content-wrapper  ">
           <h5 className="message-content  bg-primary-200 p-2 rounded-t-xl rounded-br-xl">
             {props.messageContent}
@@ -28,12 +22,6 @@ const Message = (props: MessageContent) => {
           </h5>
           <p className="arrive-time text-xs text-gray-400">{props.time}</p>
         </div>
-        <Avatar
-          className="self-end"
-          isBordered
-          radius="full"
-          src={props.avatar}
-        />
       </div>
     </div>
   );
