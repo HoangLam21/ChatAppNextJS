@@ -2,24 +2,30 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "/styles/theme.css";
 import { Providers } from "@/app/provider";
-import SideBar from "@/components/SideBar";
+import SideBar from "@/components/NavBar";
 import React from "react";
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/nextjs";
 const inter = Inter({ subsets: ["latin"] });
-function RootLayout({
+function SeRootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  let a = 1;
   return (
     <html lang="en" className="scrollbar-track-transparent scrollbar-thumb">
-      <body className="w-screen overflow-hidden h-screen">
-        <div className="navbar-wrapper h-16">
+      <body className=" w-screen overflow-hidden h-screen flex flex-col-reverse sm:flex-col ">
+        <div className="w-full h-fit justify-self-center navbar-wrapper">
           <SideBar></SideBar>
         </div>
-        <div>{children}</div>
+        {children}
       </body>
     </html>
   );
 }
-export default RootLayout;
+export default SeRootLayout;

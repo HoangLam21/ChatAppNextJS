@@ -18,15 +18,32 @@ import {
   DropdownItem,
 } from "@nextui-org/react";
 import Image from "next/image";
-import {
-  FriendsIcon,
-  MessageIcon,
-  PrivacyIcon,
-  ReportIcon,
-  SettingIcon,
-} from "./NavBarIcon";
 import { usePathname } from "next/navigation";
-const SideBar = () => {
+import { NavBarItems } from "@/types/icon-props";
+const NavBar = () => {
+  const navbarItems: NavBarItems[] = [
+    {
+      unselectedIcon: "/assets/icons/MessageUnselected.png",
+      selectedIcon: "/assets/icons/MessageSelected.png",
+      link: "/message",
+    },
+    {
+      unselectedIcon: "/assets/icons/FriendsUnselected.png",
+      selectedIcon: "/assets/icons/FriendsSelected.png",
+      link: "/friends",
+    },
+    {
+      unselectedIcon: "/assets/icons/GroupsUnselected.png",
+      selectedIcon: "/assets/icons/GroupsSelected.png",
+      link: "/groups",
+    },
+    {
+      unselectedIcon: "/assets/icons/SettingUnselected.png",
+      selectedIcon: "/assets/icons/SettingSelected.png",
+      link: "/setting",
+    },
+  ];
+
   const menuItems = [
     { label: "Message", link: "/message" },
     { label: "Friends", link: "/friends" },
@@ -43,41 +60,42 @@ const SideBar = () => {
     <Navbar
       className="border-b-2 border-primary-200"
       isBordered
-      isMenuOpen={isMenuOpen}
-      onMenuOpenChange={setIsMenuOpen}
     >
-      <NavbarBrand>
-        <NavbarContent className="sm:hidden" justify="start">
-          <NavbarMenuToggle
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          />
-        </NavbarContent>
-
+      <NavbarBrand className="hidden sm:flex">
         <Image src="/Logo.png" alt="logo" width={60} height={60}></Image>
-        <p className="font-bold text-inherit">TuCu Chat</p>
+        <p className="font-bold text-inherit hidden sm:block">TuCu Chat</p>
       </NavbarBrand>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        {menuItems.map((m, index) => {
+      <NavbarContent className="sm:flex gap-4 justify-center w-full" justify="center">
+        {navbarItems.map((m, index) => {
           const isActive = pathName?.startsWith(m.link);
           return (
-            <NavbarItem key={index}>
+            <NavbarItem key={index} className="justify-self-center">
               <Link
                 href={m.link}
                 className={
                   isActive
-                    ? "bg-primary-500 text-text-w rounded-3xl transition p-3 text-medium font-semibold hover:text-primary-400"
-                    : "transition text-medium font-semibold hover:text-primary-400"
+                    ? "bg-primary-500 text-text-w transition duration-150 p-3 text-medium font-semibold hover:text-primary-400 rounded-full"
+                    : "transition duration-150 p-3 text-medium font-semibold hover:text-primary-400 rounded-full"
                 }
               >
-                {m.label}
+                <Image
+                  alt="nav-icon"
+                  src={isActive ? m.selectedIcon : m.unselectedIcon}
+                  width={35}
+                  height={40}
+                ></Image>
               </Link>
             </NavbarItem>
           );
         })}
       </NavbarContent>
 
-      <NavbarContent as="div" justify="end">
+      <NavbarContent
+        as="div"
+        justify="end"
+        className="hidden sm:flex"
+      >
         <Dropdown placement="bottom-end">
           <DropdownTrigger>
             <Avatar
@@ -123,30 +141,7 @@ const SideBar = () => {
           </DropdownMenu>
         </Dropdown>
       </NavbarContent>
-      <NavbarMenu className=" p-0 border-t-2 border-primary-200">
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem
-            key={`${item.label}-${index}`}
-            className="border-b-2 border-primary-200 border-opacity-20 group place-content-center justify-center transition hover:bg-primary-500 p-5"
-          >
-            <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              className="w-full text-text-b justify-self-center place-items-center place-content-center group-hover:text-text-w"
-              href={item.link}
-              size="lg"
-            >
-              {item.label}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
     </Navbar>
   );
 };
-export default React.memo(SideBar);
+export default React.memo(NavBar);

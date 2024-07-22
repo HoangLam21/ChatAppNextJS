@@ -70,9 +70,9 @@ export default function Home() {
     ],
   };
   return (
-    <main className="flex h-screen flex-col items-center justify-between p-0 gap-4">
-      <div className=" w-screen h-screen border-4 message-page-wrapper flex flex-row">
-        <div className="message-list flex-1 h-screen w-screen flex flex-col ">
+    <main className="flex-1 h-1/2 flex-col items-center justify-between p-0 gap-4 relative">
+      <div className=" w-screen h-auto border-4 message-page-wrapper flex flex-row">
+        <div className="message-list flex-1 h-auto w-screen flex flex-col ">
           <SearchBox></SearchBox>
           <div className="messagebox-list flex flex-col overflow-auto  scrollbar-thin">
             {times.map((t, index) => (
@@ -93,7 +93,6 @@ export default function Home() {
       </div>
       
       </div>
-      <div className="">Message</div>
     </main>
   );
 }

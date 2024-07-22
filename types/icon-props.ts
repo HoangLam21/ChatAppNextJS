@@ -7,8 +7,9 @@ export interface IconRecSize {
   y: string;
   color: string;
 }
-export interface NavBarItems<T> {
-  label: string;
+
+export interface NavBarItems {
+  unselectedIcon: string;
+  selectedIcon: string;
   link: string;
-  icons:T
 }
