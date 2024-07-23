@@ -1,16 +1,25 @@
 "use client";
-import { UserInfoProps } from "@/types/user-props";
+import { FriendsInfoProps, UserInfoProps } from "@/types/user-props";
 import Image from "next/image";
 import Link from "next/link";
 import FileUpload from "./UploadFile";
 import { useState } from "react";
+import { Button } from "@nextui-org/react";
+import FriendStatus from "./FriendStatus";
 
-const UserProfile = (props: UserInfoProps, {}) => {
-  const [isUploadOpen, setIsUploadOpen] = useState(false);
+const FriendsProfile = (props: FriendsInfoProps) => {
   return (
     <div className="user-wrapper p-4 w-full sm:max-w-[400px] h-except-navbar transition-all relatvie">
       <div className="user-group w-full h-full flex flex-col place-items-center relative justify-center rounded-2xl shadow-2xl transition">
         <div className="background rounded-t-2xl relative bg-primary-300 w-full h-auto p-4 flex place-items-center justify-center">
+          <button className="cancle hover:scale-95 absolute z-30 translate-x-40 -translate-y-32 transition after:z-10 place-self-end justify-self-end">
+            <Image
+              src="/assets/icons/BCancleIcon.png"
+              alt="cancle"
+              width={30}
+              height={30}
+            ></Image>
+          </button>
           <Image
             className=" border-primary-400 rounded-full translate-y-14"
             src={props.avatar}
@@ -18,27 +27,14 @@ const UserProfile = (props: UserInfoProps, {}) => {
             width={150}
             height={150}
           ></Image>
-          <button
-            className="change-image translate-x-14 translate-y-28 hover:scale-95 transition absolute"
-            onClick={() => {
-              setIsUploadOpen(!isUploadOpen);
-              console.log(!isUploadOpen);
-            }}
-          >
-            <Image
-              src="/assets/icons/CameraIconUnselected.png"
-              alt="change-img"
-              width={30}
-              height={30}
-            ></Image>
-          </button>
-          <FileUpload
-            isUploadOpen={isUploadOpen}
-            setIsUploadOpen={setIsUploadOpen}
-          ></FileUpload>
         </div>
-
-        <div className="information-wrap py-10 flex flex-col justify-items-center place-items-center flex-1">
+        <div className="function-group flex mt-14 gap-3">
+          {<FriendStatus relation={props.myRelation}></FriendStatus>}
+          <Button color="danger" className="text-medium font-semibold">
+            Block
+          </Button>
+        </div>
+        <div className="information-wrap pb-10 flex flex-col justify-items-center place-items-center flex-1">
           <h1 className="fulmame text-2xl font-bold">
             {props.firstName} {props.lastName}
           </h1>
@@ -58,9 +54,12 @@ const UserProfile = (props: UserInfoProps, {}) => {
               {props.personalPoint.toString()}
             </h5>
           </div>
+          <Button color="secondary" className="text-md font-semibold p-6">
+            Give some vote
+          </Button>
         </div>
       </div>
     </div>
   );
 };
-export default UserProfile;
+export default FriendsProfile;

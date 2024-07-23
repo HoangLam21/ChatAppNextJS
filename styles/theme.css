@@ -24,6 +24,9 @@
   .is-selected{
     @apply bg-primary-400
   }
+  .blur-card::before{
+    @apply absolute bg-slate-300
+  }
 }
 @layer components {
   .before-overlay::before {

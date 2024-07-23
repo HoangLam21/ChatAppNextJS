@@ -17,3 +17,7 @@ export interface UploadFileProps {
   isUploadOpen: boolean;
   setIsUploadOpen: (isOpen: boolean) => void;
 }
+export interface ProfileState {
+  isProfileOpen: boolean;
+  setIsProfileOpen: (isOpen: boolean) => void;
+}

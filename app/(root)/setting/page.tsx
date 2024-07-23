@@ -15,8 +15,11 @@ export default function Setting() {
     birthday: "1990-01-01T00:00:00.000Z",
     address: "123 Main St, Anytown, USA",
     description: "Di len tren kia choi",
+    phoneNumber: "0998467833",
+    email: "dalin1990@gmail.com",
     personalPoint: 100.5,
   };
+
   return (
     <div>
       <main className="w-screen h-screen flex flex-col sm:flex-row overflow-y-auto">
