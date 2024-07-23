@@ -13,3 +13,7 @@ export interface NavBarItems {
   selectedIcon: string;
   link: string;
 }
+export interface UploadFileProps {
+  isUploadOpen: boolean;
+  setIsUploadOpen: (isOpen: boolean) => void;
+}
