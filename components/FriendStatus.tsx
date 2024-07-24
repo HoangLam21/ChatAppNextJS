@@ -4,19 +4,19 @@ const FriendStatus: React.FC<{ relation: string }> = ({ relation })  => {
   switch (relation) {
     case "friend":
       return (
-        <Button color="secondary" className="text-medium font-semibold">
+        <Button color="secondary" className="text-sm font-semibold sm:text-medium">
           Unfriend
         </Button>
       );
     case "stranger":
       return (
-        <Button color="secondary" className="text-medium font-semibold">
+        <Button color="secondary" className="text-sm font-semibold sm:text-medium">
           Add Friend
         </Button>
       );
     case "request":
       return (
-        <Button color="secondary" className="text-medium font-semibold">
+        <Button color="secondary" className="text-sm font-semibold sm:text-medium">
           Accept
         </Button>
       );

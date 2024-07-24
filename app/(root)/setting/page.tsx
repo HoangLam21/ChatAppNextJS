@@ -22,7 +22,7 @@ export default function Setting() {
 
   return (
     <div>
-      <main className="w-screen h-screen flex flex-col sm:flex-row overflow-y-auto">
+      <main className="w-screen  h-except-navbar flex flex-col sm:flex-row overflow-y-auto">
         <UserProfile {...test}></UserProfile>
         <SettingSpace></SettingSpace>
       </main>

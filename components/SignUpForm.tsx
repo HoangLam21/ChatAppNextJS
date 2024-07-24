@@ -1,17 +1,16 @@
-"use client";
+import React from "react";
 import AuthCheckBox from "@/components/AuthCheckbox";
 import ButtonType1 from "@/components/ButtonType1";
 import { EyeFilledIcon } from "@/components/EyeFilledIcon";
 import { EyeSlashFilledIcon } from "@/components/EyeSlashFilledIcon";
 import FormFunction from "@/components/FormFunction";
 import PolicyAgreement from "@/components/PolicyAgreement";
-import { Button, Input, Link, LinkIcon } from "@nextui-org/react";
-import React from "react";
+import { Button, Input } from "@nextui-org/react";
+import { SignUp } from "@clerk/nextjs";
+import { Signup } from "@/lib/actions/signup.action";
 
-const SignUp = () => {
+const SignUpForm = () => {
   const [isVisible, setIsVisible] = React.useState(false);
-
-  const toggleVisibility = () => setIsVisible(!isVisible);
   return (
     <form action="" className="auth-form sign-up-form h-900">
       <h1 className="login-title auth-header-title">Sign Up</h1>
@@ -60,7 +59,7 @@ const SignUp = () => {
           <button
             className="focus:outline-none"
             type="button"
-            onClick={toggleVisibility}
+            onClick={() => setIsVisible(!isVisible)}
           >
             {isVisible ? (
               <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
@@ -84,7 +83,7 @@ const SignUp = () => {
           <button
             className="focus:outline-none"
             type="button"
-            onClick={toggleVisibility}
+            onClick={() => setIsVisible(!isVisible)}
           >
             {isVisible ? (
               <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
@@ -96,9 +95,13 @@ const SignUp = () => {
         type={isVisible ? "text" : "password"}
         className="max-w-xs mb-4"
       />
+      <button onClick={() => Signup()}>Sign-up</button>
 
-      <ButtonType1 content="Sign up"></ButtonType1>
-        <PolicyAgreement content="I agree with TuCu's " nav_link="/policy" function="Policy"></PolicyAgreement>
+      <PolicyAgreement
+        content="I agree with TuCu's "
+        nav_link="/policy"
+        function="Policy"
+      ></PolicyAgreement>
 
       <FormFunction
         content="Already have an account?"
@@ -108,5 +111,4 @@ const SignUp = () => {
     </form>
   );
 };
-
-export default SignUp;
+export default SignUpForm;

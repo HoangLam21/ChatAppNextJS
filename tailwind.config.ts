@@ -35,7 +35,8 @@ const config: Config = {
       height: {
         "400": "400px",
         "580": "580px",
-        "except-navbar": "calc(100vh - 70px)",
+        "except-navbar": "calc(100vh - 65px)",
+        "except-nav-and-search": "calc(100vh - 105px)",
       },
     },
     backgroundImage: {

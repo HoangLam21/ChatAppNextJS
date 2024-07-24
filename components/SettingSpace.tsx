@@ -70,7 +70,7 @@ const SettingSpace = () => {
         </div>
         <div className="function-group flex place-items-center p-8 justify-end border-b-2">
           <Button color="danger" className="text-lg font-semibold p-5">
-            Log out{" "}
+            Log out
           </Button>
         </div>
       </div>

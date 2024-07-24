@@ -1,5 +1,6 @@
 import FriendsProfile from "@/components/FriendsProfile";
 import MiniFriendBox from "@/components/MiniFriendBox";
+import RecentRequestBox from "@/components/RecentRequestBox";
 import { SearchIcon } from "@/components/SearchIcon";
 import { FriendsInfoProps } from "@/types/user-props";
 import { Input } from "@nextui-org/react";
@@ -20,23 +21,35 @@ export default function Friends() {
     phoneNumber: "0933897781",
     email: "cocochanel99@gmail.com",
     personalPoint: 20.7,
-    myRelation: "friend",
+    myRelation: "requested",
   };
-  const times = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const times = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 
   return (
     <div>
-      <main className="flex min-h-screen flex-col">
+      <main className="flex h-except-navbar flex-col">
         <Input
           startContent={<SearchIcon></SearchIcon>}
           type="text"
           placeholder="Search here"
           className="transition-all rounded-none hover:border-primary-200 text-xl"
         ></Input>
-        <div className="myfriends-wrap h-except-navbar scrollbar-thin overflow-y-scroll grid grid-flow-row grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 gap-3 p-3">
-          {times.map((t, index) => (
-            <MiniFriendBox key={t} {...test}></MiniFriendBox>
-          ))}
+        <div className="friends-wrap flex flex-col h-except-nav-and-search flex-1 sm:flex-row p-2 gap-2">
+          <h5 className="sm:hidden font-bold text-primary-500 ">My request</h5>
+          <div className="recent-list rounded-md h-2/5 sm:h-full scrollbar-hide overflow-y-auto shadow-3xl ">
+            {times.map((m, index) =>
+              test.myRelation === "request" ||
+              test.myRelation === "requested" ? (
+                <RecentRequestBox key={index} {...test}></RecentRequestBox>
+              ) : null
+            )}
+          </div>
+          <h5 className="sm:hidden font-bold text-primary-500 ">My Friends</h5>
+          <div className="friends-list rounded-md h-2/5 sm:h-full scrollbar-hide flex flex-col overflow-y-auto flex-1 shadow-3xl">
+            {times.map((m, index) => (
+              <MiniFriendBox key={index} {...test}></MiniFriendBox>
+            ))}
+          </div>
         </div>
       </main>
     </div>
