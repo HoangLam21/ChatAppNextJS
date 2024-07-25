@@ -1,15 +1,23 @@
 "use client";
-import { UserInfoProps } from "@/types/user-props";
+import { EditProfileProps, UserInfoProps } from "@/types/user-props";
 import Image from "next/image";
 import Link from "next/link";
 import FileUpload from "./UploadFile";
 import { useState } from "react";
-
-const UserProfile = (props: UserInfoProps, {}) => {
+import { Button } from "@nextui-org/react";
+import EditProfile from "./EditProfile";
+const UserProfile = (props: UserInfoProps) => {
   const [isUploadOpen, setIsUploadOpen] = useState(false);
+  const [isEditOpen, setIsEditOpen] = useState(false);
+  const editProfileProps: EditProfileProps = {
+    ...props,
+    isOpen: isEditOpen,
+    setIsOpen: setIsEditOpen,
+  };
   return (
-    <div className="user-wrapper p-4 w-full sm:max-w-[400px] h-except-navbar transition-all relatvie">
+    <div className="user-wrapper p-4 w-full sm:max-w-[400px] h-except-navbar transition-all relatvie flex items-center justify-center animate-slideInFromLeft">
       <div className="user-group w-full h-full flex flex-col place-items-center relative justify-center rounded-2xl shadow-2xl transition">
+        {isEditOpen && <EditProfile {...editProfileProps}></EditProfile>}
         <div className="background rounded-t-2xl relative bg-primary-300 w-full h-auto p-4 flex place-items-center justify-center">
           <Image
             className=" border-primary-400 rounded-full translate-y-14"
@@ -33,8 +41,8 @@ const UserProfile = (props: UserInfoProps, {}) => {
             ></Image>
           </button>
           <FileUpload
-            isUploadOpen={isUploadOpen}
-            setIsUploadOpen={setIsUploadOpen}
+            isOpen={isUploadOpen}
+            setIsOpen={setIsUploadOpen}
           ></FileUpload>
         </div>
 
@@ -44,6 +52,13 @@ const UserProfile = (props: UserInfoProps, {}) => {
           </h1>
           <h2 className="nickname text-medium">({props.nickName})</h2>
           <p className="description">{props.description}</p>
+          <Button
+            onClick={() => setIsEditOpen(!isEditOpen)}
+            color="secondary"
+            className="m-2"
+          >
+            Profile Setting
+          </Button>
           <div className="information-group  p-4 grid grid-rows-4 grid-flow-col gap-x-7 gap-y-5">
             <h6>Gender:</h6>
             <h6>Birthday:</h6>

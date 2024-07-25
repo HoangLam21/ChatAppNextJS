@@ -1,5 +1,9 @@
 "use client";
-import { FriendsInfoProps, UserInfoProps } from "@/types/user-props";
+import {
+  FriendProfileProps,
+  FriendsInfoProps,
+  UserInfoProps,
+} from "@/types/user-props";
 import Image from "next/image";
 import Link from "next/link";
 import FileUpload from "./UploadFile";
@@ -7,12 +11,15 @@ import { useState } from "react";
 import { Button } from "@nextui-org/react";
 import FriendStatus from "./FriendStatus";
 
-const FriendsProfile = (props: FriendsInfoProps) => {
+const FriendsProfile = (props: FriendProfileProps) => {
   return (
-    <div className="user-wrapper p-4 w-full sm:max-w-[400px] h-except-navbar transition-all relatvie">
-      <div className="user-group w-full h-full flex flex-col place-items-center relative justify-center rounded-2xl shadow-2xl transition">
+    <div className="user-wrapper w-full sm:w-1/2 sm:max-w-[1000px] h-except-navbar transition-all absolute bg-white z-50 place-self-center rounded-2xl shadow-2xl animate-fadeIn ">
+      <div className="user-group w-full h-full flex flex-col place-items-center relative justify-center  transition">
         <div className="background rounded-t-2xl relative bg-primary-300 w-full h-auto p-4 flex place-items-center justify-center">
-          <button className="cancle hover:scale-95 absolute z-30 translate-x-40 -translate-y-32 transition after:z-10 place-self-end justify-self-end">
+          <button
+            onClick={() => props.setIsOpen(!props.isOpen)}
+            className="cancle hover:scale-95 absolute z-30 top-2 right-2 transition after:z-10 place-self-end justify-self-end"
+          >
             <Image
               src="/assets/icons/BCancleIcon.png"
               alt="cancle"

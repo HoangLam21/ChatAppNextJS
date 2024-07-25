@@ -1,7 +1,8 @@
 import SettingSpace from "@/components/SettingSpace";
 import FileUpload from "@/components/UploadFile";
 import UserProfile from "@/components/UserProfile";
-import { UserInfoProps } from "@/types/user-props";
+import { FriendProfileProps, UserInfoProps } from "@/types/user-props";
+import { useState } from "react";
 
 export default function Setting() {
   const test: UserInfoProps = {
@@ -19,10 +20,10 @@ export default function Setting() {
     email: "dalin1990@gmail.com",
     personalPoint: 100.5,
   };
-
+  
   return (
     <div>
-      <main className="w-screen  h-except-navbar flex flex-col sm:flex-row overflow-y-auto">
+      <main className="w-screen overflow-x-hidden scrollbar-hide  h-except-navbar flex flex-col sm:flex-row overflow-y-auto">
         <UserProfile {...test}></UserProfile>
         <SettingSpace></SettingSpace>
       </main>

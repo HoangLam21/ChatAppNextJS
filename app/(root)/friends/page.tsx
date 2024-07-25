@@ -1,10 +1,11 @@
+"use client";
 import FriendsProfile from "@/components/FriendsProfile";
 import MiniFriendBox from "@/components/MiniFriendBox";
 import RecentRequestBox from "@/components/RecentRequestBox";
 import { SearchIcon } from "@/components/SearchIcon";
-import { FriendsInfoProps } from "@/types/user-props";
+import { FriendProfileProps, FriendsInfoProps } from "@/types/user-props";
 import { Input } from "@nextui-org/react";
-import { profile } from "console";
+import { useState } from "react";
 
 export default function Friends() {
   const test: FriendsInfoProps = {
@@ -24,10 +25,22 @@ export default function Friends() {
     myRelation: "requested",
   };
   const times = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [friendInfo, setFriendInfo] = useState({});
+  const friendProfileProps: FriendProfileProps = {
+    ...test,
+    isOpen: isProfileOpen,
+    setIsOpen: setIsProfileOpen,
+    data: friendInfo,
+    setData: setFriendInfo,
+  };
 
   return (
     <div>
-      <main className="flex h-except-navbar flex-col">
+      <main className="flex h-except-navbar flex-col justify-center">
+          {isProfileOpen && (
+            <FriendsProfile {...friendProfileProps}></FriendsProfile>
+          )}
         <Input
           startContent={<SearchIcon></SearchIcon>}
           type="text"
@@ -40,14 +53,20 @@ export default function Friends() {
             {times.map((m, index) =>
               test.myRelation === "request" ||
               test.myRelation === "requested" ? (
-                <RecentRequestBox key={index} {...test}></RecentRequestBox>
+                <RecentRequestBox
+                  key={index}
+                  {...friendProfileProps}
+                ></RecentRequestBox>
               ) : null
             )}
           </div>
           <h5 className="sm:hidden font-bold text-primary-500 ">My Friends</h5>
           <div className="friends-list rounded-md h-2/5 sm:h-full scrollbar-hide flex flex-col overflow-y-auto flex-1 shadow-3xl">
             {times.map((m, index) => (
-              <MiniFriendBox key={index} {...test}></MiniFriendBox>
+              <MiniFriendBox
+                key={index}
+                {...friendProfileProps}
+              ></MiniFriendBox>
             ))}
           </div>
         </div>

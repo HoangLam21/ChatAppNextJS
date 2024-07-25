@@ -14,7 +14,32 @@ const MessageBoxHeader = (props: ReceiverInfo) => {
         name={props.name}
       ></User>
       <div className="flex-1"></div>
-      <div className="function-btn flex gap-2 justify-self-end justify-items-center align-middle place-items-center"></div>
+      <div className="function-btn flex gap-4 justify-self-end justify-items-center align-middle place-items-center">
+        <button className="hover:scale-95 transition ">
+          <Image
+            src="/assets/icons/VideoIcon.png"
+            alt="video"
+            width={25}
+            height={25}
+          ></Image>
+        </button>
+        <button className="hover:scale-95 transition ">
+          <Image
+            src="/assets/icons/TelephoneIcon.png"
+            alt="video"
+            width={25}
+            height={25}
+          ></Image>
+        </button>
+        <button className="hover:scale-95 transition ">
+          <Image
+            src="/assets/icons/InformationIcon.png"
+            alt="video"
+            width={25}
+            height={25}
+          ></Image>
+        </button>
+      </div>
     </div>
   );
 };

@@ -21,8 +21,8 @@ export default function Groups() {
     myRelation: "friend",
   };
   return (
-    <main className="flex-1 h-1/2 flex-col items-center justify-between p-0 gap-4 relative">
-      <FriendsProfile {...test}></FriendsProfile>
+    <main className="flex h-1/2 flex-col items-center justify-between p-0 gap-4 relative">
+      <div className="text-4xl font-bold">Comming Soon</div>
     </main>
   );
 }

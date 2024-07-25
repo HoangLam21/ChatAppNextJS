@@ -1,4 +1,5 @@
 import { Double } from "mongodb";
+import { DataState, ToggleState } from "./icon-props";
 
 export interface UserInfoProps {
   id: string;
@@ -32,3 +33,5 @@ export interface FriendsInfoProps {
   personalPoint: Number;
   myRelation: string;
 }
+export interface EditProfileProps extends UserInfoProps, ToggleState {}
+export interface FriendProfileProps extends FriendsInfoProps, ToggleState,DataState {}

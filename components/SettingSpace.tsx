@@ -8,7 +8,7 @@ const SettingSpace = () => {
   const cookieOptions = ["Allow", "Block"];
   const microandcamOpstions = ["test1", "test2"];
   return (
-    <div className="setting-wrap h-except-navbar w-full p-4 sm:pl-0 flex relative">
+    <div className="setting-wrap h-except-navbar w-full p-4 sm:pl-0 flex relative animate-slideInFromRight">
       <div className="setting-group h-full w-full rounded-2xl shadow-2xl flex flex-col">
         <div className="function-group flex place-items-center p-8 justify-between items-center border-b-2">
           <h5 className="text-xl">Dark mode</h5>
