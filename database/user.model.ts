@@ -14,7 +14,7 @@ export interface IUser extends Document {
   personalPoint: Number;
   createAt: Date;
 }
-export const userSchema = new Schema({
+export const UserSchema = new Schema({
   id: { type: String, required: true },
   firstName: { type: String, required: true },
   fullName: { type: String, required: true },
@@ -29,3 +29,4 @@ export const userSchema = new Schema({
   personalPoint: { type: Number, required: true },
   createAt: { type: Date, required: true },
 });
+const User = models.User || model('User',UserSchema);

@@ -4,8 +4,9 @@ export interface ICoupleChat {
   ids: Schema.Types.ObjectId[];
   message: Schema.Types.ObjectId[];
 }
-export const coupleChatSchema = new Schema({
+export const CoupleChatSchema = new Schema({
   chatId: { type: String, require: true },
   ids: { type: Schema.Types.ObjectId, require: true },
   messages: { type: Schema.Types.ObjectId, require: true },
 });
+const CoupleChat = models.CoupleChat || model("CoupleChat", CoupleChatSchema);

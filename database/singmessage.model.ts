@@ -7,7 +7,7 @@ export interface ISingMessage {
   content: string;
   createAt: Date;
 }
-export const singMessage = new Schema({
+export const SingMessageSchema = new Schema({
   messageId: { type: String, require: true },
   chatId: { type: String, require: true },
   senderId: { type: String, require: true },
@@ -15,3 +15,4 @@ export const singMessage = new Schema({
   content: { type: String, require: true },
   createAt: { type: Date, require: true },
 });
+const SingMessage = models.SingMessage || model('SingMesssage',SingMessageSchema);

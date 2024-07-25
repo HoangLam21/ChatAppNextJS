@@ -15,6 +15,7 @@ export interface UserInfoProps {
   email: string;
   description: string;
   personalPoint: Number;
+  createAt:Date
 }
 
 export interface FriendsInfoProps {
