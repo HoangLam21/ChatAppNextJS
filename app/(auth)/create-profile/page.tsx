@@ -3,7 +3,7 @@ import EditProfile from "@/components/EditProfile";
 
 const CreateProfilePage = () => {
   return (
-    <main w-full h-full>
+    <main className="w-full h-full  before-overlay flex items-center justify-center">
       <CreateProfile></CreateProfile>
     </main>
   );

@@ -4,9 +4,10 @@ export interface IUser extends Document {
   firstName: string;
   fullName: string;
   nickName: string;
+  gender: string;
   avatar: string;
   background: string;
-  birthday: Date;
+  birthday: string;
   phoneNumber: string;
   email: string;
   address: string;
@@ -17,16 +18,17 @@ export interface IUser extends Document {
 export const UserSchema = new Schema({
   id: { type: String, required: true },
   firstName: { type: String, required: true },
-  fullName: { type: String, required: true },
+  lastName: { type: String, required: true },
   nickName: { type: String, required: true },
-  avatar: { type: String, required: true },
-  background: { type: String, required: true },
-  birthday: { type: Date, require: true },
+  avatar: { type: String },
+  background: { type: String },
+  gender: { type: String, require: true, default: "secret" },
+  birthday: { type: String, require: true },
   phoneNumber: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   address: { type: String, required: true },
-  description: { type: String, required: true },
-  personalPoint: { type: Number, required: true },
-  createAt: { type: Date, required: true },
+  description: { type: String },
+  personalPoint: { type: Number, default: 100 },
+  createAt: { type: Date, default: Date.now() },
 });
-const User = models.User || model('User',UserSchema);
+export const User = models.User || model("User", UserSchema);

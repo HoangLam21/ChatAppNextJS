@@ -7,4 +7,4 @@ export const RelationSchema = new Schema({
   ids: { type: Schema.Types.ObjectId, require: true },
   relation: { type: String, required: true },
 });
-const Relation = models.Relation || model("Relation", RelationSchema);
+export const Relation = models.Relation || model("Relation", RelationSchema);

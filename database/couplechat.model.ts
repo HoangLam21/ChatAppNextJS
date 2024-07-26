@@ -9,4 +9,4 @@ export const CoupleChatSchema = new Schema({
   ids: { type: Schema.Types.ObjectId, require: true },
   messages: { type: Schema.Types.ObjectId, require: true },
 });
-const CoupleChat = models.CoupleChat || model("CoupleChat", CoupleChatSchema);
+export const CoupleChat = models.CoupleChat || model("CoupleChat", CoupleChatSchema);

@@ -19,6 +19,7 @@ export default function Setting() {
     phoneNumber: "0998467833",
     email: "dalin1990@gmail.com",
     personalPoint: 100.5,
+    createAt:new Date(Date.now())
   };
   
   return (

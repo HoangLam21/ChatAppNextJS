@@ -15,4 +15,4 @@ export const SingMessageSchema = new Schema({
   content: { type: String, require: true },
   createAt: { type: Date, require: true },
 });
-const SingMessage = models.SingMessage || model('SingMesssage',SingMessageSchema);
+export const SingMessage = models.SingMessage || model('SingMesssage',SingMessageSchema);

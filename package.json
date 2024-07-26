@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^5.2.6",
+    "@internationalized/date": "^3.5.5",
     "@nextui-org/react": "^2.4.2",
+    "@react-aria/i18n": "^3.12.1",
     "body-parser": "^1.20.2",
+    "calendar-date": "^2.6.2",
     "dotenv": "^16.4.5",
     "flowbite": "^2.4.1",
     "framer-motion": "^11.3.5",

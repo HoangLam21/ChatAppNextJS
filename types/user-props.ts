@@ -15,7 +15,7 @@ export interface UserInfoProps {
   email: string;
   description: string;
   personalPoint: Number;
-  createAt:Date
+  createAt: Date;
 }
 
 export interface FriendsInfoProps {
@@ -35,4 +35,7 @@ export interface FriendsInfoProps {
   myRelation: string;
 }
 export interface EditProfileProps extends UserInfoProps, ToggleState {}
-export interface FriendProfileProps extends FriendsInfoProps, ToggleState,DataState {}
+export interface FriendProfileProps
+  extends FriendsInfoProps,
+    ToggleState,
+    DataState {}
