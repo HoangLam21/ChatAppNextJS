@@ -19,6 +19,7 @@
     "flowbite": "^2.4.1",
     "framer-motion": "^11.3.5",
     "fs": "^0.0.1-security",
+    "gridfs-stream": "^1.1.1",
     "mongodb": "^6.8.0",
     "mongoose": "^8.5.1",
     "next": "14.2.5",

@@ -1,5 +1,4 @@
 import { Button, Input } from "@nextui-org/react";
-import ButtonType1 from "./ButtonType1";
 
 const MessageTyping = () => {
   return (

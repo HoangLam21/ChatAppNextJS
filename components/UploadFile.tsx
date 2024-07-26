@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@nextui-org/react";
 import Image from "next/image";
-import { ToggleState } from "@/types/icon-props";
+import { ToggleState } from "@/types/function-props";
 
 const UploadFile = (props: ToggleState) => {
   return props.isOpen ? (

@@ -2,9 +2,7 @@
 import { FriendProfileProps, FriendsInfoProps } from "@/types/user-props";
 import Image from "next/image";
 import React from "react";
-import { useState } from "react";
 import FriendUserBox from "./FriendUserBox";
-import FriendsProfile from "./FriendsProfile";
 const MiniFriendBox = (props: FriendProfileProps) => {
   return (
     <div onClick={()=>{props.setIsOpen(!props.isOpen); props.setData(props);}} className="h-auto friend-mini-wrap flex justify-between p-2 shadow-md items-center cursor-pointer hover:bg-primary-100 transition">

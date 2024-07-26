@@ -1,5 +1,5 @@
 import { Double } from "mongodb";
-import { DataState, ToggleState } from "./icon-props";
+import { DataState, ToggleState } from "./function-props";
 
 export interface UserInfoProps {
   id: string;
@@ -8,7 +8,7 @@ export interface UserInfoProps {
   nickName: string;
   avatar: string;
   background: string;
-  gender: boolean;
+  gender: string;
   birthday: string;
   address: string;
   phoneNumber: string;

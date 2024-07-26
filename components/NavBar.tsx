@@ -19,7 +19,7 @@ import {
 } from "@nextui-org/react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { NavBarItems } from "@/types/icon-props";
+import { NavBarItems } from "@/types/function-props";
 const NavBar = () => {
   const navbarItems: NavBarItems[] = [
     {
@@ -51,10 +51,6 @@ const NavBar = () => {
     { label: "Report", link: "/report" },
     { label: "Setting", link: "/setting" },
   ];
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [selectedMenuItem, setSelectedMenuItem] = React.useState("");
-  const iconSize = "30";
-  const iconColor = "#301755";
   const pathName = usePathname();
   return (
     <Navbar

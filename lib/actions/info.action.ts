@@ -1,39 +1,35 @@
 "use server";
 import { UserInfoProps } from "@/types/user-props";
 import { connectToDatabase } from "../mongodb";
-import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
 import { User } from "@/database/user.model";
+import { getAuthId } from "../utils/auth";
 export const createInfo = async (param: any) => {
-  const { userId } = auth();
-  if (!userId) redirect("/sign-in");
-  param.id = userId;
-
+  param.id = getAuthId();
   connectToDatabase();
   try {
-    const user = await User.findOne({ id: userId });
+    const user = await User.findOne({ id: param.id });
     if (!!user) {
       throw () => {
-        console.log("User " + userId + " has been exist!");
+        console.log("User " + param.id + " has been exist!");
       };
-    } // Trả về true nếu user tồn tại, ngược lại false
-    // const userData = {
-    //   id: userId,
-    //   firstName: param.firstName,
-    //   lastName: param.lastName,
-    //   nickName: param.nickName,
-    //   birthday: param.birthday,
-    //   phoneNumber: param.phoneNumber,
-    //   email: param.email,
-    //   address: param.address,
-    //   createAt: Date.now(),
-    //   personalPoint: 100,
-    // };
-
-    // Create a new user with the sanitized data
+    }
     const newUser = await User.create(param);
     console.log("User created successfully:", newUser);
-  } catch (e) {
-    console.log("Create info err: " + e);
+  } catch (err) {
+    console.log("Create info err: " + err);
+  }
+};
+export const getMyProfile = async () => {
+  try {
+    connectToDatabase();
+    const userId = getAuthId();
+    const myProfile = await User.findOne({ id: userId });
+    console.log(getAuthId());
+    if (!myProfile) {
+      console.log("User " + getAuthId() + "is not exist");
+    }
+    return myProfile.toObject();
+  } catch (err) {
+    console.log("Fetch profile data err: " + err);
   }
 };

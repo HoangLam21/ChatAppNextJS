@@ -3,12 +3,14 @@ import { EditProfileProps, UserInfoProps } from "@/types/user-props";
 import Image from "next/image";
 import Link from "next/link";
 import FileUpload from "./UploadFile";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@nextui-org/react";
 import EditProfile from "./EditProfile";
+import { getMyProfile } from "@/lib/actions/info.action";
 const UserProfile = (props: UserInfoProps) => {
   const [isUploadOpen, setIsUploadOpen] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
+  const [myInfo,setMyInfo] = useState({});
   const editProfileProps: EditProfileProps = {
     ...props,
     isOpen: isEditOpen,
@@ -65,7 +67,7 @@ const UserProfile = (props: UserInfoProps) => {
             <h6>Address:</h6>
             <h6 className="font-semibold">Personal Point</h6>
             <h5 className="font-semibold">
-              {props.gender ? "Male" : "Female"}
+              {props.gender === "male"? "Male":"Female"}
             </h5>
             <h5 className="font-semibold">{props.birthday}</h5>
             <h5 className="font-semibold">{props.address}</h5>

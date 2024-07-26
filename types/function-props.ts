@@ -11,3 +11,8 @@ export interface DataState {
   data: Object;
   setData: (newData: object) => void;
 }
+export interface AlertBoxProps extends ToggleState {
+  icon: string;
+  message: string;
+  do: () => void;
+}

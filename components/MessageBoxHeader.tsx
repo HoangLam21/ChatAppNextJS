@@ -1,6 +1,5 @@
 import { ReceiverInfo } from "@/types/message-props";
 import { User } from "@nextui-org/react";
-import { InformationIcon, NormalCallIcon, VideoCallIcon } from "./MessageIcon";
 import Image from "next/image";
 
 const MessageBoxHeader = (props: ReceiverInfo) => {

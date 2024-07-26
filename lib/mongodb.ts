@@ -1,7 +1,5 @@
 "use server";
 import mongoose from "mongoose";
-import { Iceberg } from "next/font/google";
-import { env } from "process";
 let isConnected: boolean;
 const DB_URL = process.env.MONGODB_URL!;
 export const connectToDatabase = async () => {
