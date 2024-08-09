@@ -13,7 +13,7 @@ import FriendStatus from "./FriendStatus";
 
 const FriendsProfile = (props: FriendProfileProps) => {
   return (
-    <div className="user-wrapper w-full sm:w-1/2 sm:max-w-[1000px] h-except-navbar transition-all absolute bg-white z-50 place-self-center rounded-2xl shadow-2xl animate-fadeIn ">
+    <div className="user-wrapper w-full sm:w-1/2 sm:max-w-[1000px]  transition-all absolute bg-white z-50 place-self-center rounded-2xl shadow-2xl animate-fadeIn ">
       <div className="user-group w-full h-full flex flex-col place-items-center relative justify-center  transition">
         <div className="background rounded-t-2xl relative bg-primary-300 w-full h-auto p-4 flex place-items-center justify-center">
           <button

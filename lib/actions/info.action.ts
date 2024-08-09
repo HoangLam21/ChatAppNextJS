@@ -24,12 +24,26 @@ export const getMyProfile = async () => {
     connectToDatabase();
     const userId = getAuthId();
     const myProfile = await User.findOne({ id: userId });
-    console.log(getAuthId());
     if (!myProfile) {
       console.log("User " + getAuthId() + "is not exist");
     }
     return myProfile.toObject();
   } catch (err) {
     console.log("Fetch profile data err: " + err);
+  }
+};
+export const updateAvatar = async (param: any) => {
+  try {
+    const { imgURL } = param;
+    connectToDatabase();
+    console.log("url "+ imgURL);
+    const userId = getAuthId();
+    const updatedAvatar = await User.updateOne(
+      { id: userId },
+      { $set: { avatar: imgURL } }
+    );
+    return updatedAvatar;
+  } catch (error) {
+    console.error("An error occurred during the upload:", error);
   }
 };

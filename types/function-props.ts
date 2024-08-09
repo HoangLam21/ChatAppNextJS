@@ -11,6 +11,9 @@ export interface DataState {
   data: Object;
   setData: (newData: object) => void;
 }
+export interface UpdateBase64Image extends ToggleState{
+  base64:string
+}
 export interface AlertBoxProps extends ToggleState {
   icon: string;
   message: string;

@@ -20,7 +20,7 @@ export const UserSchema = new Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   nickName: { type: String, required: true },
-  avatar: { type: String },
+  avatar: { type: String, require: true, default: "" },
   background: { type: String },
   gender: { type: String, require: true, default: "secret" },
   birthday: { type: String, require: true },

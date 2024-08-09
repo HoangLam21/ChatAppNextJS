@@ -1,3 +1,6 @@
+import { ChangeEvent } from "react";
+import { updateAvatar } from "../actions/info.action";
+
 export const randomAvatar = () => {
   const images = [
     "Ava1.png",

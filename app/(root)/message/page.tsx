@@ -4,13 +4,10 @@ import MessageBox from "@/components/MessageBox";
 import MessageBoxHeader from "@/components/MessageBoxHeader";
 import MessageTyping from "@/components/MessageTyping";
 import SearchBox from "@/components/SearchBox";
-import {
-  ChatBoxProps,
-  MessageBoxProps,
-  ReceiverInfo,
-} from "@/types/message-props";
-import { useState } from "react";
-
+import { ChatBoxProps, MessageContent } from "@/types/message-props";
+import { useState, useEffect } from "react";
+import { pusherClient } from "@/lib/pusher";
+import { useAuth } from "@clerk/nextjs";
 export default function Home() {
   const testDatas: ChatBoxProps[] = [
     {
@@ -39,7 +36,7 @@ export default function Home() {
     },
     {
       receiverInfo: {
-        id: "1",
+        id: "2",
         name: "Lonysa",
         avatar: "/UserAvatar1.webp",
         isOnline: true,
@@ -63,6 +60,30 @@ export default function Home() {
       ],
     },
   ];
+  const { userId } = useAuth();
+  sessionStorage.setItem("userId", userId!);
+  const [chatBoxData, setChatBoxData] = useState<ChatBoxProps[]>(testDatas);
+  const [friendId, setFriendId] = useState("");
+  useEffect(() => {
+    if (!!sessionStorage.getItem("userId")) {
+      const channelName = `private-chat-${[
+        sessionStorage.getItem("userId"),
+        friendId,
+      ]
+        .sort()
+        .join("-")}`;
+      pusherClient.subscribe(channelName);
+      console.log("Has subscribed: ", channelName);
+
+      pusherClient.bind(
+        "upcoming-message",
+        (data: { message: MessageContent }) => {}
+      );
+      return () => pusherClient.unsubscribe(channelName);
+    }
+    console.log("You are not authenticated");
+  }, [friendId]);
+
   const [chatData, setChatData] = useState(testDatas[0]);
   return (
     <main className="flex-1 h-1/2 flex-col items-center justify-between p-0 gap-4 relative">
@@ -74,6 +95,8 @@ export default function Home() {
               <div
                 onClick={() => {
                   setChatData(data);
+                  setFriendId(data.receiverInfo.id);
+                  console.log(data.receiverInfo.id);
                 }}
                 key={index}
               >

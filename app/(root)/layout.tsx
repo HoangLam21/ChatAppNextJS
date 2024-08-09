@@ -11,14 +11,17 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 const inter = Inter({ subsets: ["latin"] });
-function SeRootLayout({
+async function SeRootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className="scrollbar-track-transparent scrollbar-thumb auth-bg">
+      <html
+        lang="en"
+        className="scrollbar-track-transparent scrollbar-thumb auth-bg"
+      >
         <body className="sm:overflow-hidden w-screen h-screen flex flex-col-reverse sm:flex-col overflow-x-hidden ">
           <div className="w-full h-fit justify-self-center navbar-wrapper">
             <SideBar></SideBar>

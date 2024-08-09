@@ -17,7 +17,7 @@ const UserProfile = (props: UserInfoProps) => {
     setIsOpen: setIsEditOpen,
   };
   return (
-    <div className="user-wrapper p-4 w-full sm:max-w-[400px] h-except-navbar transition-all relatvie flex items-center justify-center animate-slideInFromLeft">
+    <div className="user-wrapper p-4 w-full sm:max-w-[400px] h-fit transition-all relatvie flex items-center justify-center animate-slideInFromLeft ">
       <div className="user-group w-full h-full flex flex-col place-items-center relative justify-center rounded-2xl shadow-2xl transition">
         {isEditOpen && <EditProfile {...editProfileProps}></EditProfile>}
         <div className="background rounded-t-2xl relative bg-primary-300 w-full h-auto p-4 flex place-items-center justify-center">

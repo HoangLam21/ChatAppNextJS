@@ -10,10 +10,9 @@ export default async function Setting() {
  
   return (
     <div>
-      <main className="w-screen overflow-x-hidden scrollbar-hide  h-except-navbar flex flex-col sm:flex-row overflow-y-auto items-center justify-center">
+      <main className="w-screen overflow-x-hidden scrollbar-hide  h-except-navbar flex flex-col sm:flex-row overflow-y-auto justify-center">
         <UserProfile {...data}></UserProfile>
         <SettingSpace></SettingSpace>
-       
       </main>
     </div>
   );
